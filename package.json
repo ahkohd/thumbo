@@ -1,5 +1,5 @@
 {
-  "name": "thumbo-1",
+  "name": "thumbo",
   "version": "1.0.0",
   "description": "",
   "module": "dist/thumbo.js",
@@ -21,12 +21,14 @@
   },
   "homepage": "https://github.com/ahkohd/thumbo#readme",
   "devDependencies": {
+    "raw-loader": "^4.0.2",
     "ts-loader": "^9.2.6",
     "typescript": "^4.4.4",
     "webpack": "^5.59.1",
     "webpack-cli": "^4.9.1"
   },
   "dependencies": {
+    "threads": "^1.7.0",
     "thumbo-core": "^1.0.4"
   }
 }
