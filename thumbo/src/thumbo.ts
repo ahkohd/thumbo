@@ -1,10 +1,10 @@
 import { spawn, Pool, TransferDescriptor, BlobWorker } from "threads";
 
 import { PoolOptions } from "threads/dist/master/pool";
-import { ThumboWorkerConfig } from "../../types/ThumboWorkerConfig";
+import { ThumboWorkerConfig } from "../../commons/types/ThumboWorkerConfig";
+import ImageFormat from "../../commons/types/ImageFormat";
 
 import ThumboWorker from "!!raw-loader!../../thumbo-worker/dist/thumboWorker.js";
-import ImageFormat from "../../types/ImageFormat";
 
 export { Transfer } from "threads";
 
