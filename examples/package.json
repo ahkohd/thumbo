@@ -1,0 +1,85 @@
+{
+  "author": "WeAreAthlon <hello@weareathlon.com> (https://www.weareathlon.com)",
+  "name": "@weareathlon/frontend-webpack-boilerplate",
+  "version": "5.10.0",
+  "description": "Starter project template boilerplate based on Webpack with SASS/PostCSS and babel ES6/7 support.",
+  "homepage": "https://github.com/WeAreAthlon/frontend-webpack-boilerplate#readme",
+  "browserslist": [
+    "last 2 versions",
+    "> 5%"
+  ],
+  "bugs": {
+    "url": "https://github.com/WeAreAthlon/frontend-webpack-boilerplate/issues",
+    "email": "plamen@athlonsofia.com"
+  },
+  "contributors": [
+    {
+      "name": "Plamen Nikolov",
+      "email": "me@pnikoloff.com",
+      "url": "https://pnikoloff.com"
+    }
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.15.0",
+    "@babel/preset-env": "^7.15.6",
+    "autoprefixer": "^10.3.4",
+    "babel-loader": "^8.2.2",
+    "clean-webpack-plugin": "^4.0.0",
+    "copy-webpack-plugin": "^9.0.1",
+    "css-loader": "^6.3.0",
+    "css-minimizer-webpack-plugin": "^3.0.2",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb": "^18.2.1",
+    "eslint-plugin-import": "^2.24.2",
+    "eslint-plugin-jsx-a11y": "^6.4.1",
+    "eslint-plugin-react": "^7.24.0",
+    "eslint-plugin-react-hooks": "^4.2.0",
+    "html-webpack-plugin": "^5.3.2",
+    "image-minimizer-webpack-plugin": "^2.2.0",
+    "imagemin-gifsicle": "^7.0.0",
+    "imagemin-jpegtran": "^7.0.0",
+    "imagemin-optipng": "^8.0.0",
+    "imagemin-svgo": "^9.0.0",
+    "mini-css-extract-plugin": "^2.3.0",
+    "postcss": "^8.3.6",
+    "postcss-loader": "^6.1.1",
+    "sass": "^1.41.1",
+    "sass-lint": "^1.13.1",
+    "sass-loader": "^12.1.0",
+    "terser-webpack-plugin": "^5.2.4",
+    "webpack": "^5.53.0",
+    "webpack-bundle-analyzer": "^4.4.2",
+    "webpack-cli": "^4.8.0",
+    "webpack-dev-server": "^4.2.1",
+    "webpack-merge": "^5.8.0"
+  },
+  "engines": {
+    "node": "^12 || >=14"
+  },
+  "keywords": [
+    "webpack",
+    "boilerplate",
+    "template",
+    "setup"
+  ],
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:WeAreAthlon/frontend-webpack-boilerplate.git"
+  },
+  "scripts": {
+    "build": "webpack --config configuration/webpack.dev.config.js --mode=development",
+    "watch": "webpack --config configuration/webpack.dev.config.js --mode=development --watch",
+    "bundle": "npm install && npm run watch",
+    "dev": "webpack serve --config configuration/webpack.dev.config.js --mode=development",
+    "production": "webpack --config configuration/webpack.prod.config.js --mode=production",
+    "lint:sass": "sass-lint -v -q",
+    "lint:js": "eslint --ext .js src/js/",
+    "stats": "webpack --config configuration/webpack.prod.config.js --mode=production --json > dist/stats.json && webpack-bundle-analyzer dist/stats.json"
+  },
+  "target": "web",
+  "dependencies": {
+    "thumbo-core": "^1.0.4"
+  }
+}
