@@ -1,22 +1,6 @@
-import { expose, Transfer } from "threads";
+import { expose, Transfer, TransferDescriptor } from "threads";
 import { ThumboWorkerConfig } from "../../commons/types/ThumboWorkerConfig";
-import { wasmExports, wasmImports, bootstrap } from "./thumboWorkerBg";
-
-declare global {
-  interface Window {
-    thumboInstance: any;
-    heap: Array<any>;
-    heap_next: number;
-    cachedTextDecoder: TextDecoder;
-    cachedTextEncoder: TextEncoder;
-    WASM_VECTOR_LEN: number;
-    cachegetUint8Memory0: Uint8Array;
-    cachegetInt32Memory0: Int32Array;
-    encodeString(arg: any, view: any): TextEncoderEncodeIntoResult;
-  }
-}
-
-bootstrap();
+import bootstrap from "./thumboWorkerBg";
 
 expose(
   async (
@@ -24,24 +8,29 @@ expose(
     config: ThumboWorkerConfig,
     buffer?: ArrayBufferLike
   ) => {
-    self.thumboInstance = await WebAssembly.instantiate(
-      wasmModule,
-      wasmImports() as any
-    );
-    const thumbo = wasmExports();
-    let imgBuffer;
+    const task = new Promise<TransferDescriptor>((resolve) => {
+      bootstrap(wasmModule, async (thumbo) => {
+        let imgBuffer;
 
-    if (config.url) {
-      imgBuffer = new Uint8Array(await (await fetch(config.url)).arrayBuffer());
-    }
+        if (config.url) {
+          imgBuffer = new Uint8Array(
+            await (await fetch(config.url)).arrayBuffer()
+          );
+        }
 
-    return Transfer(
-      thumbo.thumbnail(
-        config.url ? imgBuffer : new Uint8Array(buffer!),
-        config.format,
-        config.width,
-        config.height
-      ).buffer
-    );
+        resolve(
+          Transfer(
+            thumbo.thumbnail(
+              config.url ? imgBuffer : new Uint8Array(buffer!),
+              config.format,
+              config.width,
+              config.height
+            ).buffer
+          )
+        );
+      });
+    });
+
+    return await task;
   }
 );
