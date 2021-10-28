@@ -1,5 +1,5 @@
 import { expose, Transfer } from "threads";
-import { ThumboWorkerConfig } from "../../types/ThumboWorkerConfig";
+import { ThumboWorkerConfig } from "../../commons/types/ThumboWorkerConfig";
 import { wasmExports, wasmImports, bootstrap } from "./thumboWorkerBg";
 
 declare global {
