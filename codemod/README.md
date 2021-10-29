@@ -8,8 +8,8 @@ The transformed code used to build [thumbo-worker](../thumbo-worker).
 ## 📜 Background
 
 As at the development of `thumbo`, the wasm support for webpack is still experimental and sometimes requires hack to make it work.
-This codemod tool takes the generated `thumboCorebg.js` from [wasm-pack](https://rustwasm.github.io/wasm-pack/) and transforms it - add code that compiles the `wasmBytes` and initiate the module, populates and pass the wasm imports,
-and provides a callback which thumbo-core exported methods are passed as arguments.
+This codemod tool takes the generated `thumboCorebg.js` from [wasm-pack](https://rustwasm.github.io/wasm-pack/) and transforms it; add code that compiles the `wasmBytes`, initiates the module, pass the wasm imports
+and provides a callback which thumbo-core exported methods are passed as argument for use by the worker.
 
 ## 🏗 Setup
 
