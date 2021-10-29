@@ -2,8 +2,7 @@ export default function bootstrap(
   wasmModule: WebAssembly.Module,
   callback: (exports) => void
 ) {
-  let wasm = null,
-    wasmImports = null;
+  let wasm, wasmImports;
 
   const heap = new Array(32).fill(undefined);
 
