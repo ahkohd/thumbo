@@ -1,5 +1,5 @@
 import { expose, Transfer, TransferDescriptor } from "threads";
-import { ThumboWorkerConfig } from "../../commons/types/ThumboWorkerConfig";
+import { ThumboWorkerConfig } from "../../common/types/ThumboWorkerConfig";
 import bootstrap from "../../codemod/dist/thumboWorkerBg";
 
 expose(
