@@ -3,26 +3,82 @@ import Thumbo, { Transfer } from "thumbo";
 const TEST_IMAGE_PATH = "../images/content/wallpaper.jpg";
 
 const testImgUrls = [
-  "https://images.unsplash.com/photo-1635323392268-c92c4a5776f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=710&q=80",
-  "https://images.unsplash.com/photo-1621609764095-b32bbe35cf3a?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80",
-  "https://images.unsplash.com/photo-1635333638889-e7d59453ac8d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1635380673258-3b76cd29a654?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1635178792420-b90837a4e5d0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80",
-  "https://images.unsplash.com/photo-1635179210313-6a16eab501fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1633113092754-523fd2d9a90c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1620165479836-f68bc54e19d2?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1635367653616-2a7c45339985?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1635235762637-3b09e505a7b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1635346688116-118b69f2f113?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
-  "https://images.unsplash.com/photo-1635403868664-179c789560a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1087&q=80",
-  "https://images.unsplash.com/photo-1635398500586-6d2c1887eeff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=772&q=80",
-  "https://images.unsplash.com/photo-1635394053145-f628e792e4f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80",
-  "https://images.unsplash.com/photo-1635323392268-c92c4a5776f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=710&q=80",
+  {
+    url: "https://images.unsplash.com/photo-1635323392268-c92c4a5776f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=710&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1621609764095-b32bbe35cf3a?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://www.vectorlogo.zone/logos/rust-lang/rust-lang-icon.svg",
+    fmt: Thumbo.ImageFormat.Svg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635333638889-e7d59453ac8d?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://cdn.worldvectorlogo.com/logos/webassembly.svg",
+    fmt: Thumbo.ImageFormat.Svg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635380673258-3b76cd29a654?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635178792420-b90837a4e5d0?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=770&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635179210313-6a16eab501fc?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1633113092754-523fd2d9a90c?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1620165479836-f68bc54e19d2?ixid=MnwxMjA3fDF8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635367653616-2a7c45339985?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635235762637-3b09e505a7b3?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635346688116-118b69f2f113?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=774&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635403868664-179c789560a7?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1087&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635398500586-6d2c1887eeff?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=772&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635394053145-f628e792e4f8?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1064&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  {
+    url: "https://images.unsplash.com/photo-1635323392268-c92c4a5776f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=710&q=80",
+    fmt: Thumbo.ImageFormat.Jpeg,
+  },
+  ,
 ];
 
 const t0 = performance.now();
 
-Thumbo.init().then(async () => {
+Thumbo.init({
+  wasmUrl: "https://unpkg.com/thumbo-core@1.0.9/pkg/thumbo_core_bg.wasm",
+}).then(async () => {
   const t1 = performance.now();
   document.getElementById("start-timer").innerText = `Initialized thumbo: ${(
     (t1 - t0) *
@@ -35,9 +91,9 @@ Thumbo.init().then(async () => {
     (thumbnailBuffer) => renderThumbnail(thumbnailBuffer)
   );
 
-  testImgUrls.map((url) =>
-    Thumbo.thumbnailFromUrl(url, Thumbo.ImageFormat.Jpeg, 100, 100).then(
-      (thumbnailBuffer) => renderThumbnail(thumbnailBuffer)
+  testImgUrls.map(({ url, fmt }) =>
+    Thumbo.thumbnailFromUrl(url, fmt, 100, 100).then((thumbnailBuffer) =>
+      renderThumbnail(thumbnailBuffer)
     )
   );
 
