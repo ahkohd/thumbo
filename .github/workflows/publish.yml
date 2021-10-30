@@ -1,0 +1,30 @@
+name: Publish
+
+on:
+  push:
+    tags:
+      - '*'
+  pull_request:
+    tags:
+      - '*'
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run thumbo-core codemod
+        run: cd codemod && npm i -g jscodeshift && yarn && node ./src/main.js
+      - name: Build thumbo worker
+        run: cd thumbo-worker && yarn && yarn build:prod
+      - name: Build thumbo
+        run: cd thumbo && yarn && yarn build:prod
+      - uses: JS-DevTools/npm-publish@v1
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
+          package: ./thumbo/package.json
