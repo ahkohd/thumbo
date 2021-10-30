@@ -13,14 +13,9 @@ const wasmBgUrl = "https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.js";
   }
 
   writeFileSync("../dist/thumboWorkerBg.js", bgScript);
-  const cwd = process.cwd();
 
   exec(
-    `jscodeshift -t ${cwd}/mod.js ${join(
-      cwd,
-      "../",
-      "dist/thumboWorkerBg.js"
-    )}`,
+    `jscodeshift -t ./mod.js ../dist/thumboWorkerBg.js`,
     (error, stdout, stderr) => {
       if (error) {
         console.log(`error: ${error.message}`);
