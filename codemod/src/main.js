@@ -1,5 +1,5 @@
 const fetch = require("isomorphic-fetch");
-const writeFileSync = require("fs").writeFileSync;
+const { writeFileSync, mkdirSync, existsSync } = require("fs");
 const exec = require("child_process").exec;
 const join = require("path").join;
 
@@ -7,6 +7,10 @@ const wasmBgUrl = "https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.js";
 
 (async () => {
   const bgScript = await (await fetch(wasmBgUrl)).text();
+
+  if (!existsSync("../dist")) {
+    mkdirSync("../dist");
+  }
 
   writeFileSync("../dist/thumboWorkerBg.js", bgScript);
   const cwd = process.cwd();
