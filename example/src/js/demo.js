@@ -1,4 +1,4 @@
-import Thumbo, { Transfer } from "../../../thumbo/dist/thumbo";
+import Thumbo, { Transfer } from "thumbo";
 
 const TEST_IMAGE_PATH = "../images/content/passport.jpg";
 
