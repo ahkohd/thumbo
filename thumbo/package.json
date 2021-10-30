@@ -1,6 +1,6 @@
 {
   "name": "thumbo",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Dead fast thumbnail library for browser and NodeJs",
   "main": "dist/thumbo.js",
   "typings": "dist/thumbo/src/thumbo.d.ts",
