@@ -1,6 +1,6 @@
 import Thumbo, { Transfer } from "thumbo";
 
-const TEST_IMAGE_PATH = "../images/content/passport.jpg";
+const TEST_IMAGE_PATH = "../images/content/wallpaper.jpg";
 
 const testImgUrls = [
   "https://images.unsplash.com/photo-1635323392268-c92c4a5776f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=710&q=80",
