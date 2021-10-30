@@ -31,7 +31,7 @@ jobs:
         run: yarn && yarn build:prod
       - name: Update package version
         working-directory: thumbo
-        run: cd thumbo && npm version ${{ env.RELEASE_VERSION }}
+        run: npm version ${{ env.RELEASE_VERSION }}
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}
