@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "rootDir": ".",
+    "resolveJsonModule": true,
+    "composite": true,
+    "forceConsistentCasingInFileNames": true,
+    "importHelpers": true,
+    "removeComments": true,
+    "strict": true
+  },
+  // this root project has no source of its own
+  "files": [],
+  // but building this project will build all of the following:
+  "references": [{ "path": "./thumbo-worker" }, { "path": "./thumbo" }]
+}
