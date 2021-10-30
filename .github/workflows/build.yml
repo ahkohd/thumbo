@@ -16,9 +16,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Set ENV
+        run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Run thumbo-core codemod
-        run: cd codemod && npm i -g jscodeshift && yarn && node ./src/main.js
+        working-directory: codemod
+        run: npm i -g jscodeshift && yarn && node ./src/main.js
       - name: Build thumbo worker
-        run: cd thumbo-worker && yarn && yarn build:prod
+        working-directory: thumbo-worker
+        run: yarn && yarn build:prod
       - name: Build thumbo
-        run: cd thumbo && yarn && yarn build:prod
+        working-directory: thumbo
+        run: yarn && yarn build:prod
