@@ -8,19 +8,19 @@ const wasmBgUrl = "https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.js";
 
 (async () => {
   const bgScript = await (await fetch(wasmBgUrl)).text();
+  const __dirname = dirname(__filename);
+  const distDir = join(__dirname, "../dist");
 
-  if (!existsSync("../dist")) {
-    mkdirSync("../dist");
+  if (!existsSync(distDir)) {
+    mkdirSync(distDir);
   }
 
-  writeFileSync("../dist/thumboWorkerBg.js", bgScript);
-  const __dirname = dirname(__filename);
+  writeFileSync(join(distDir, "thumboWorkerBg.js"), bgScript);
 
   exec(
-    `jscodeshift -t ${__dirname}/mod.js ${join(
-      __dirname,
-      "../",
-      "dist/thumboWorkerBg.js"
+    `jscodeshift -t ${join(__dirname, "mod.js")} ${join(
+      distDir,
+      "thumboWorkerBg.js"
     )}`,
     (error, stdout, stderr) => {
       if (error) {
