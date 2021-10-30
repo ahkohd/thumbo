@@ -1,8 +1,8 @@
 import { spawn, Pool, TransferDescriptor, BlobWorker } from "threads";
 
 import { PoolOptions } from "threads/dist/master/pool";
-import { ThumboWorkerConfig } from "../../commons/types/ThumboWorkerConfig";
-import ImageFormat from "../../commons/types/ImageFormat";
+import { ThumboWorkerConfig } from "../../common/types/ThumboWorkerConfig";
+import ImageFormat from "../../common/types/ImageFormat";
 
 import ThumboWorker from "!!raw-loader!../../thumbo-worker/dist/thumboWorker.js";
 
@@ -14,7 +14,7 @@ export type InitOptions = PoolOptions & {
 
 export default class Thumbo {
   static pool;
-  static wasmModule: WebAssembly.Module;
+  static wasmModule?: WebAssembly.Module;
   static ImageFormat = ImageFormat;
   static wasmUrl =
     "https://unpkg.com/thumbo-core@1.0.8/pkg/thumbo_core_bg.wasm";
