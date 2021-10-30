@@ -17,8 +17,8 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - name: Run thumbo-core codemod
-        run: cd codemod && npm i -g jscodeshift && yarn && node ./src/main.js && cd ../
+        run: cd codemod && npm i -g jscodeshift && yarn && node ./src/main.js
       - name: Build thumbo worker
-        run: cd thumbo-worker && yarn && yarn build:prod && cd ../
+        run: cd thumbo-worker && yarn && yarn build:prod
       - name: Build thumbo
         run: cd thumbo && yarn && yarn build:prod
