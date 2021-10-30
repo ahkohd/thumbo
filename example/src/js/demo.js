@@ -20,8 +20,15 @@ const testImgUrls = [
   "https://images.unsplash.com/photo-1635323392268-c92c4a5776f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=710&q=80",
 ];
 
+const t0 = performance.now();
+
 Thumbo.init().then(async () => {
   const t1 = performance.now();
+  document.getElementById("start-timer").innerText = `Initialized thumbo: ${(
+    (t1 - t0) *
+    0.001
+  ).toFixed(2)}s`;
+
   const imgBuffer = await (await fetch(TEST_IMAGE_PATH)).arrayBuffer();
 
   Thumbo.thumbnail(Transfer(imgBuffer), Thumbo.ImageFormat.Jpeg, 80, 80).then(
@@ -36,7 +43,7 @@ Thumbo.init().then(async () => {
 
   Thumbo.completed().then(() => {
     const t2 = performance.now();
-    document.getElementById("timer").innerText = `Took ${(
+    document.getElementById("stop-timer").innerText = `Generated thumbnails: ${(
       (t2 - t1) *
       0.001
     ).toFixed(2)}s`;
