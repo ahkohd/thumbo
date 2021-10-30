@@ -1,0 +1,24 @@
+name: Build & Test
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  CARGO_TERM_COLOR: always
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Run thumbo-core codemod
+        run: cd codemod && yarn && node ./src/main.js && cd ../
+      - name: Build thumbo worker
+        run: cd thumbo-worker && yarn && yarn build:prod && cd ../
+      - name: Build thumbo
+        run: cd thumbo && yarn && yarn build:prod
