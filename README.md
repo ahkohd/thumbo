@@ -126,3 +126,37 @@ is transferred back to the main thread.
 ### <span id="thumbo_thumbnailFromUrl">Thumbo.thumbnailFromUrl(url: string, format: [ImageFormat](#imageformat), width: number, height: number)</span>
 
 Creates a thumbnail from the provided `Url`. Once the task is completed, the created thumbnail arraybuffer is transferred to the main thread.
+
+### <span id="thumbo_workers">Thumbo.workers</span>
+
+Returns the workers in the pool
+
+> Note:
+> Accessing this property before thumbo is initialized will throw an error.
+
+### <span id="thumbo_completed">Thumbo.completed(allowResolvingImmediately: boolean)</span>
+
+Returns a promise that resolves once the task queue is emptied.
+Promise will be rejected if any task fails.
+
+`allowResolvingImmediately` Set to `true` to resolve immediately if task queue is currently empty.
+
+### <span id="thumbo_settled">Thumbo.settled(allowResolvingImmediately: boolean)</span>
+
+Returns a promise that resolves once the task queue is emptied.
+Failing tasks will not cause the promise to be rejected.
+
+`allowResolvingImmediately` Set to `true` to resolve immediately if task queue is currently empty.
+
+> Note:
+> Calling this function before thumbo is initialized will throw an error.
+
+### <span id="thumbo_uninit">Thumbo.uninit(force: boolean)</span>
+
+Returns a promise that resolves once the task queue is emptied.
+Failing tasks will not cause the promise to be rejected.
+
+`force` Set to `true` to kill the thread even if it cannot be stopped gracefully.
+
+> Note:
+> Calling this function before thumbo is initialized will throw an error.

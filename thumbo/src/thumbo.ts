@@ -134,20 +134,44 @@ export default class Thumbo {
     }
   }
 
+  /**
+   * Returns the workers in the pool
+   */
+
   public static get workers() {
     Thumbo.throwIfUninitialized();
-    return Thumbo.pool.workers;
+    return Thumbo.pool;
   }
 
-  public static async completed() {
+  /**
+   * Returns a promise that resolves once the task queue is emptied.
+   * Promise will be rejected if any task fails.
+   *
+   * @param allowResolvingImmediately Set to `true` to resolve immediately if task queue is currently empty.
+   */
+
+  public static async completed(allowResolvingImmediately?: boolean) {
     Thumbo.throwIfUninitialized();
-    return Thumbo.pool.completed();
+    return Thumbo.pool.completed(allowResolvingImmediately);
   }
 
-  public static async settled() {
+  /**
+   * Returns a promise that resolves once the task queue is emptied.
+   * Failing tasks will not cause the promise to be rejected.
+   *
+   * @param allowResolvingImmediately Set to `true` to resolve immediately if task queue is currently empty.
+   */
+
+  public static async settled(allowResolvingImmediately?: boolean) {
     Thumbo.throwIfUninitialized();
-    return Thumbo.pool.settled();
+    return Thumbo.pool.settled(allowResolvingImmediately);
   }
+
+  /**
+   * Terminate all pool threads and release all resources.
+   *
+   * @param force Set to `true` to kill the thread even if it cannot be stopped gracefully.
+   */
 
   public static uninit(force?: boolean) {
     Thumbo.throwIfUninitialized();
