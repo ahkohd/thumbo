@@ -57,7 +57,7 @@ Thumbo.init(async () => {
 
 ## ⚙️ API Reference
 
-### <span id="thumbo_image_format">`Thumbo.init(callback(): void, config: InitOptions)`</span>
+### <span id="thumbo_image_format">`Thumbo.init(callback(): void, config:` [`InitOptions`](#initoptions)`)`</span>
 
 Initiates thumbo. The initiation proccess includes:
 
@@ -86,7 +86,7 @@ interface InitOptions {
 }
 ```
 
-### <span id="transfer">`Transfer(transferable: Transferable)`</span>
+### <span id="transfer">`Transfer(transferable:` [`Transferable`](https://developer.mozilla.org/de/docs/Web/API/Transferable)`)`</span>
 
 Mark transferable objects within an arbitrary object or array as
 being a transferable object. They will then not be serialized
@@ -97,6 +97,8 @@ Only array buffers, message ports and few more special types of
 objects can be transferred, but it's much faster than serializing and
 deserializing them.
 
+Returns a <span id="transferdescriptor">`TransferDescriptor`</span>, a container that holds the arraybuffer to be transferred.
+
 > Note:
 > The transferable object cannot be accessed by this thread again
 > unless the receiving thread transfers it back again!
@@ -105,7 +107,7 @@ deserializing them.
 
 See <https://developers.google.com/web/updates/2011/12/Transferable-Objects-Lightning-Fast>
 
-### <span id="imageformat">thumbo.thumbnail(image_buffer: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), format: [thumbo.ImageFormat](#thumbo_image_format), width, height)</span>
+### <span id="imageformat">Thumbo.ImageFormat</span>
 
 Enums of supported image formats. Thumbo supports thumbnail creation for the following formats:
 
@@ -115,6 +117,8 @@ Enums of supported image formats. Thumbo supports thumbnail creation for the fol
 - `Ico`
 - `Svg`
 
-### <span id="thumbo_thumbnail">thumbo.thumbnail(image_buffer: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), format: [thumbo.ImageFormat](#thumbo_image_format), width, height)</span>
+### <span id="thumbo_thumbnail">Thumbo.thumbnail(bufferDescriptor: [TransferDescriptor](#transferdescriptor), format: [ImageFormat](#imageformat), width: number, height: number)</span>
 
-Creates a thumbnail from the provided image buffer.
+Creates a thumbnail from the provided arraybuffer transfer descriptor.
+The provided arraybuffer is transferred to the worker for processing, once the task is completed, the newly created thumbnail arraybuffer
+is transferred back to the main thread.
