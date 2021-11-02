@@ -107,7 +107,7 @@ See <https://developers.google.com/web/updates/2011/12/Transferable-Objects-Ligh
 
 ### <span id="imageformat">thumbo.thumbnail(image_buffer: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), format: [thumbo.ImageFormat](#thumbo_image_format), width, height)</span>
 
-Enums of image formats supported by thumbo. Thumbo supports thumbnail creation for the following formats.
+Enums of supported image formats. Thumbo supports thumbnail creation for the following formats:
 
 - `Png`
 - `Jpeg`

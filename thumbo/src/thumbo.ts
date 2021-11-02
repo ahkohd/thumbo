@@ -21,7 +21,7 @@ export default class Thumbo {
   static wasmModule?: WebAssembly.Module;
 
   /**
-   * Enums of image formats supported by thumbo
+   * Enums of supported image formats
    */
 
   public static ImageFormat = ImageFormat;
