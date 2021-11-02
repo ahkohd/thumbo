@@ -29,6 +29,8 @@ jobs:
       - name: Build thumbo
         working-directory: thumbo
         run: yarn && yarn build:prod
+      - name: Copy README.md
+        run: cp ./README.md ./thumbo/dist/README.md
       - name: Update package version
         working-directory: thumbo
         run: npm version ${{ env.RELEASE_VERSION }}
