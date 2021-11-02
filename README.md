@@ -14,7 +14,7 @@
 
 - High-performance
 - Web worker pool
-- Built rust & Web Assembly
+- Built with Rust & Web Assembly
 - Uses transferable objects
 - Easy to use APIs
 - Supports `Png`, `Jpeg`, `Gif`, `Ico` and `Svg`
