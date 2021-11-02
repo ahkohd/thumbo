@@ -57,16 +57,17 @@ Thumbo.init(async () => {
 
 ## ⚙️ API Reference
 
-### <span id="thumbo_image_format">`Thumbo.init`</span>
+### <span id="thumbo_image_format">`Thumbo.init(callback(): void, config: InitOptions)`</span>
 
 Initiates thumbo. The initiation proccess includes:
 
 - Downloads the [thumbo-core](https://github.com/ahkohd/thumbo-core) WebAssembly bundle from [unpkg.com](https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.wasm)
 - Complies the WASM binary
 - Starts a pool of web workers(8 workers are pooled by default, however, you can control the number of wokers to be spawned) to take thumbnail creation tasks
-- After the afore mentioned steps are completed, `isInitialized` field is set `true`.
+- After the afore mentioned steps are completed, `isInitialized` field is set `true` and the provided
+  callback method is invoked
 
-### <span id="thumbo_image_format">`InitOptions`</span>
+#### <span id="thumbo_image_format">`InitOptions`</span>
 
 `InitOptions` interface provides the configurations for the `Thumbo.init` method.
 
@@ -84,6 +85,25 @@ interface InitOptions {
   size?: number;
 }
 ```
+
+### <span id="thumbo_image_format">`Transfer(transferable: Transferable)`</span>
+
+Mark transferable objects within an arbitrary object or array as
+being a transferable object. They will then not be serialized
+and deserialized on messaging with the main thread, but ownership
+of them will be tranferred to the receiving thread.
+
+Only array buffers, message ports and few more special types of
+objects can be transferred, but it's much faster than serializing and
+deserializing them.
+
+> Note:
+> The transferable object cannot be accessed by this thread again
+> unless the receiving thread transfers it back again!
+
+**Transferable**: transferable Array buffer, message port or similar.
+
+@see <https://developers.google.com/web/updates/2011/12/Transferable-Objects-Lightning-Fast>
 
 ### <span id="thumbo_thumbnail">thumbo.thumbnail(image_buffer: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), format: [thumbo.ImageFormat](#thumbo_image_format), width, height)</span>
 
