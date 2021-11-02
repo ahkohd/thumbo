@@ -57,7 +57,7 @@ Thumbo.init(async () => {
 
 ## ⚙️ API Reference
 
-### <span id="thumbo_image_format">`Thumbo.init(callback(): void, config:` [`InitOptions`](#initoptions)`)`</span>
+### <span id="thumbo_image_format">Thumbo.init(callback(): void, config: [InitOptions](#initoptions))</span>
 
 Initiates thumbo. The initiation proccess includes:
 
@@ -67,7 +67,7 @@ Initiates thumbo. The initiation proccess includes:
 - After the afore mentioned steps are completed, `isInitialized` field is set `true` and the provided
   callback method is invoked
 
-#### <span id="initoptions">`InitOptions`</span>
+#### <span id="initoptions">InitOptions</span>
 
 `InitOptions` interface provides the configuration for the `init` method.
 
@@ -86,7 +86,7 @@ interface InitOptions {
 }
 ```
 
-### <span id="transfer">`Transfer(transferable:` [`Transferable`](https://developer.mozilla.org/de/docs/Web/API/Transferable)`)`</span>
+### <span id="transfer">Transfer(transferable: [Transferable](https://developer.mozilla.org/de/docs/Web/API/Transferable))</span>
 
 Mark transferable objects within an arbitrary object or array as
 being a transferable object. They will then not be serialized
@@ -111,11 +111,11 @@ See <https://developers.google.com/web/updates/2011/12/Transferable-Objects-Ligh
 
 Enums of supported image formats. Thumbo supports thumbnail creation for the following formats:
 
-- `Png`
-- `Jpeg`
-- `Gif`
-- `Ico`
-- `Svg`
+- Png
+- Jpeg
+- Gif
+- Ico
+- Svg
 
 ### <span id="thumbo_thumbnail">Thumbo.thumbnail(bufferDescriptor: [TransferDescriptor](#transferdescriptor), format: [ImageFormat](#imageformat), width: number, height: number)</span>
 
