@@ -2,7 +2,7 @@
 
   <h1><code>thumbo</code></h1>
 
-<strong>An high performant thumbnail creation library</strong>
+<strong>An high-performant thumbnail creation library</strong>
 
 [![Build & Test](https://github.com/ahkohd/thumbo/actions/workflows/build.yml/badge.svg)](https://github.com/ahkohd/thumbo-core/actions/workflows/build.yml)
 
@@ -12,7 +12,7 @@
 
 ## ✅ Features
 
-- High performance
+- High-performance
 - Web worker pool
 - Built rust & Web Assembly
 - Uses transferable objects
