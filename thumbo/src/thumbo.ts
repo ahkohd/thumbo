@@ -8,6 +8,10 @@ import ThumboWorker from "!!raw-loader!../../thumbo-worker/dist/thumboWorker.js"
 
 export { Transfer } from "threads";
 
+/**
+ * InitOptions interface provides the configuration for the `init` method.
+ */
+
 export type InitOptions = PoolOptions & {
   wasmUrl?: string;
 };
@@ -15,9 +19,25 @@ export type InitOptions = PoolOptions & {
 export default class Thumbo {
   static pool;
   static wasmModule?: WebAssembly.Module;
-  static ImageFormat = ImageFormat;
+
+  /**
+   * Enums of image formats supported by thumbo
+   */
+
+  public static ImageFormat = ImageFormat;
+
   static wasmUrl =
     "https://unpkg.com/thumbo-core@1.0.8/pkg/thumbo_core_bg.wasm";
+
+  /**
+   * Initiates thumbo. The initiation proccess includes:
+   *  - Downloads the [thumbo-core](https://github.com/ahkohd/thumbo-core) WebAssembly bundle from [unpkg.com](https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.wasm)
+   *  - Complies the WASM binary
+   *  - Starts a pool of web workers(8 workers are pooled by default, however, you can control the number of wokers to be spawned) to take thumbnail creation tasks
+   *  - After the afore mentioned steps are completed, `isInitialized` field is set `true` and the provided
+   *     callback method is invoked
+   * @param options configuration for the `init` method
+   */
 
   public static async init(options?: InitOptions) {
     try {

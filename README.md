@@ -17,7 +17,7 @@
 - Built rust & Web Assembly
 - Uses transferable objects
 - Easy to use APIs
-- Supports `Png`, `Jpeg`, `Gif`, `Ico`, `Webp` and `Svg`
+- Supports `Png`, `Jpeg`, `Gif`, `Ico` and `Svg`
 
 ## 🚴 Usage
 
@@ -67,9 +67,9 @@ Initiates thumbo. The initiation proccess includes:
 - After the afore mentioned steps are completed, `isInitialized` field is set `true` and the provided
   callback method is invoked
 
-#### <span id="thumbo_image_format">`InitOptions`</span>
+#### <span id="initoptions">`InitOptions`</span>
 
-`InitOptions` interface provides the configurations for the `Thumbo.init` method.
+`InitOptions` interface provides the configuration for the `init` method.
 
 ```ts
 interface InitOptions {
@@ -86,7 +86,7 @@ interface InitOptions {
 }
 ```
 
-### <span id="thumbo_image_format">`Transfer(transferable: Transferable)`</span>
+### <span id="transfer">`Transfer(transferable: Transferable)`</span>
 
 Mark transferable objects within an arbitrary object or array as
 being a transferable object. They will then not be serialized
@@ -103,7 +103,17 @@ deserializing them.
 
 **Transferable**: transferable Array buffer, message port or similar.
 
-@see <https://developers.google.com/web/updates/2011/12/Transferable-Objects-Lightning-Fast>
+See <https://developers.google.com/web/updates/2011/12/Transferable-Objects-Lightning-Fast>
+
+### <span id="imageformat">thumbo.thumbnail(image_buffer: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), format: [thumbo.ImageFormat](#thumbo_image_format), width, height)</span>
+
+Enums of image formats supported by thumbo. Thumbo supports thumbnail creation for the following formats.
+
+- `Png`
+- `Jpeg`
+- `Gif`
+- `Ico`
+- `Svg`
 
 ### <span id="thumbo_thumbnail">thumbo.thumbnail(image_buffer: [Uint8Array](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Uint8Array), format: [thumbo.ImageFormat](#thumbo_image_format), width, height)</span>
 
