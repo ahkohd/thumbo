@@ -74,7 +74,7 @@ export default class Thumbo {
   /**
    * Creates a thumbnail from the provided arraybuffer transfer descriptor.
    * The provided arraybuffer is transferred to the worker for processing, once the task is completed, the created thumbnail arraybuffer
-   * is transferred back to the main thread.
+   * is transferred to the main thread.
    *
    * @param arraybufferDescriptor arraybuffer transfer descriptor
    * @param format Format of the source image
@@ -100,6 +100,17 @@ export default class Thumbo {
       arraybufferDescriptor
     );
   }
+
+  /**
+   * Creates a thumbnail from the provided Url.
+   * Once the task is completed, the created thumbnail arraybuffer is transferred to the main thread.
+   *
+   * @param url Url of the source image
+   * @param format Format of the source image
+   * @param width Width of the thumbnail
+   * @param height Height of the thumbnail
+   * @returns Promise that resolves to the thumbnail arraybuffer
+   */
 
   public static async thumbnailFromUrl(
     url: string,

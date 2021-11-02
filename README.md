@@ -122,3 +122,7 @@ Enums of supported image formats. Thumbo supports thumbnail creation for the fol
 Creates a thumbnail from the provided arraybuffer transfer descriptor.
 The provided arraybuffer is transferred to the worker for processing, once the task is completed, the newly created thumbnail arraybuffer
 is transferred back to the main thread.
+
+### <span id="thumbo_thumbnailFromUrl">Thumbo.thumbnailFromUrl(url: string, format: [ImageFormat](#imageformat), width: number, height: number)</span>
+
+Creates a thumbnail from the provided `Url`. Once the task is completed, the created thumbnail arraybuffer is transferred to the main thread.
