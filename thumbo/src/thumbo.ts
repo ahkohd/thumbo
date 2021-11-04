@@ -34,35 +34,44 @@ export default class Thumbo {
    *  - Downloads the [thumbo-core](https://github.com/ahkohd/thumbo-core) WebAssembly bundle from [unpkg.com](https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.wasm)
    *  - Complies the WASM binary
    *  - Starts a pool of web workers(8 workers are pooled by default, however, you can control the number of wokers to be spawned) to take thumbnail creation tasks
-   *  - After the afore mentioned steps are completed, `isInitialized` field is set `true` and the provided
-   *     callback method is invoked
+   *  - After the afore mentioned steps are completed, `isInitialized` field is set `true`
    * @param options configuration for the `init` method
    */
 
   public static async init(options?: InitOptions) {
-    try {
-      Thumbo.wasmModule = await WebAssembly.compileStreaming(
-        fetch(options?.wasmUrl ?? Thumbo.wasmUrl)
-      );
+    const init = new Promise<void>(async (reslove, reject) => {
+      try {
+        Thumbo.wasmModule = await WebAssembly.compileStreaming(
+          fetch(options?.wasmUrl ?? Thumbo.wasmUrl)
+        );
 
-      Thumbo.pool = Pool(
-        () => spawn(BlobWorker.fromText(ThumboWorker)),
-        options
-      );
-    } catch (e) {
-      console.error(e);
-    }
+        Thumbo.pool = Pool(
+          () => spawn(BlobWorker.fromText(ThumboWorker)),
+          options
+        );
+
+        reslove();
+      } catch (e) {
+        reject(e);
+      }
+    });
+
+    return await init;
   }
 
   static async work(
     config: ThumboWorkerConfig,
     bufferDescriptor?: TransferDescriptor
   ) {
-    return new Promise((resolve, reject) => {
+    return new Promise<ArrayBuffer>((resolve, reject) => {
       Thumbo.pool.queue(async (thumboWorker) => {
         try {
           resolve(
-            await thumboWorker(Thumbo.wasmModule, config, bufferDescriptor)
+            (await thumboWorker(
+              Thumbo.wasmModule,
+              config,
+              bufferDescriptor
+            )) as ArrayBuffer
           );
         } catch (e) {
           reject(e);
