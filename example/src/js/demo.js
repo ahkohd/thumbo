@@ -76,35 +76,36 @@ const testImgUrls = [
 
 const t0 = performance.now();
 
-Thumbo.init({
-  wasmUrl: "https://unpkg.com/thumbo-core@1.0.9/pkg/thumbo_core_bg.wasm",
-}).then(async () => {
-  const t1 = performance.now();
-  document.getElementById("start-timer").innerText = `Initialized thumbo: ${(
-    (t1 - t0) *
-    0.001
-  ).toFixed(2)}s`;
-
-  const imgBuffer = await (await fetch(TEST_IMAGE_PATH)).arrayBuffer();
-
-  Thumbo.thumbnail(Transfer(imgBuffer), Thumbo.ImageFormat.Jpeg, 80, 80).then(
-    (thumbnailBuffer) => renderThumbnail(thumbnailBuffer)
-  );
-
-  testImgUrls.map(({ url, fmt }) =>
-    Thumbo.thumbnailFromUrl(url, fmt, 100, 100).then((thumbnailBuffer) =>
-      renderThumbnail(thumbnailBuffer)
-    )
-  );
-
-  Thumbo.completed().then(() => {
-    const t2 = performance.now();
-    document.getElementById("stop-timer").innerText = `Generated thumbnails: ${(
-      (t2 - t1) *
+Thumbo.init()
+  .then(async () => {
+    const t1 = performance.now();
+    document.getElementById("start-timer").innerText = `Initialized thumbo: ${(
+      (t1 - t0) *
       0.001
     ).toFixed(2)}s`;
+
+    const imgBuffer = await (await fetch(TEST_IMAGE_PATH)).arrayBuffer();
+
+    Thumbo.thumbnail(Transfer(imgBuffer), Thumbo.ImageFormat.Jpeg, 80, 80).then(
+      (thumbnailBuffer) => renderThumbnail(thumbnailBuffer)
+    );
+
+    testImgUrls.map(({ url, fmt }) =>
+      Thumbo.thumbnailFromUrl(url, fmt, 100, 100).then((thumbnailBuffer) =>
+        renderThumbnail(thumbnailBuffer)
+      )
+    );
+
+    Thumbo.completed().then(() => {
+      const t2 = performance.now();
+      document.getElementById(
+        "stop-timer"
+      ).innerText = `Generated thumbnails: ${((t2 - t1) * 0.001).toFixed(2)}s`;
+    });
+  })
+  .catch((e) => {
+    console.error("Unable to initialized Thumbo:", e);
   });
-});
 
 const renderThumbnail = (imageBuffer) => {
   const img = document.createElement("img");
