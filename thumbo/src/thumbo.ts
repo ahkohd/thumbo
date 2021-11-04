@@ -26,8 +26,7 @@ export default class Thumbo {
 
   public static ImageFormat = ImageFormat;
 
-  static wasmUrl =
-    "https://unpkg.com/thumbo-core@1.0.8/pkg/thumbo_core_bg.wasm";
+  static wasmUrl = "https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.wasm";
 
   /**
    * Initiates thumbo. The initiation proccess includes:
