@@ -85,7 +85,7 @@ interface InitOptions {
 }
 ```
 
-### <span id="transfer">Transfer(transferable: [Transferable](https://developer.mozilla.org/de/docs/Web/API/Transferable))</span>
+### <span id="transfer">Transfer(transferable: [Transferable](https://developer.mozilla.org/de/docs/Web/API/Transferable)): TransferDescriptor</span>
 
 Mark transferable objects within an arbitrary object or array as
 being a transferable object. They will then not be serialized
