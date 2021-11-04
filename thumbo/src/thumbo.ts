@@ -40,24 +40,17 @@ export default class Thumbo {
    */
 
   public static async init(options?: InitOptions) {
-    const init = new Promise<void>(async (reslove, reject) => {
-      try {
-        Thumbo.wasmModule = await WebAssembly.compileStreaming(
-          fetch(options?.wasmUrl ?? Thumbo.wasmUrl)
-        );
-
-        Thumbo.pool = Pool(
-          () => spawn(BlobWorker.fromText(ThumboWorker)),
-          options
-        );
-
-        reslove();
-      } catch (e) {
-        reject(e);
-      }
-    });
-
-    return await init;
+    try {
+      Thumbo.wasmModule = await WebAssembly.compileStreaming(
+        fetch(options?.wasmUrl ?? Thumbo.wasmUrl)
+      );
+      Thumbo.pool = Pool(
+        () => spawn(BlobWorker.fromText(ThumboWorker)),
+        options
+      );
+    } catch (e) {
+      console.error(e);
+    }
   }
 
   static async work(
