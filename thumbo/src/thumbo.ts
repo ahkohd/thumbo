@@ -36,6 +36,7 @@ export default class Thumbo {
    *  - Starts a pool of web workers(8 workers are pooled by default, however, you can control the number of wokers to be spawned) to take thumbnail creation tasks
    *  - After the afore mentioned steps are completed, `isInitialized` field is set `true`
    * @param options configuration for the `init` method
+   * @returns a promise that resolves when the initiation process is completed
    */
 
   public static async init(options?: InitOptions) {
@@ -89,7 +90,7 @@ export default class Thumbo {
    * @param format Format of the source image
    * @param width Width of the thumbnail
    * @param height Height of the thumbnail
-   * @returns Promise that resolves to the thumbnail arraybuffer
+   * @returns a promise that resolves to the thumbnail arraybuffer
    */
 
   public static async thumbnail(
@@ -118,7 +119,7 @@ export default class Thumbo {
    * @param format Format of the source image
    * @param width Width of the thumbnail
    * @param height Height of the thumbnail
-   * @returns Promise that resolves to the thumbnail arraybuffer
+   * @returns a promise that resolves to the thumbnail arraybuffer
    */
 
   public static async thumbnailFromUrl(

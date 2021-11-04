@@ -30,7 +30,7 @@ yarn add thumbo
 ```ts
 import Thumbo, { Transfer } from "thumbo";
 
-Thumbo.init(async () => {
+Thumbo.init().then(async () => {
   Thumbo.thumbnail(
     Transfer(await (await fetch("/path/to/img.png")).arrayBuffer()),
     Thumbo.ImageFormat.Png,
@@ -57,15 +57,14 @@ Thumbo.init(async () => {
 
 ## ⚙️ API Reference
 
-### <span id="thumbo_image_format">Thumbo.init(callback(): void, config: [InitOptions](#initoptions))</span>
+### <span id="thumbo_image_format">Thumbo.init(config: [InitOptions](#initoptions)): Promise\<void\></span>
 
 Initiates thumbo. The initiation proccess includes:
 
 - Downloads the [thumbo-core](https://github.com/ahkohd/thumbo-core) WebAssembly bundle from [unpkg.com](https://unpkg.com/thumbo-core/pkg/thumbo_core_bg.wasm)
 - Complies the WASM binary
 - Starts a pool of web workers(8 workers are pooled by default, however, you can control the number of wokers to be spawned) to take thumbnail creation tasks
-- After the afore mentioned steps are completed, `isInitialized` field is set `true` and the provided
-  callback method is invoked
+- After the afore mentioned steps are completed, `isInitialized` field is set `true`.
 
 #### <span id="initoptions">InitOptions</span>
 
@@ -117,13 +116,13 @@ Enums of supported image formats. Thumbo supports thumbnail creation for the fol
 - Ico
 - Svg
 
-### <span id="thumbo_thumbnail">Thumbo.thumbnail(bufferDescriptor: [TransferDescriptor](#transferdescriptor), format: [ImageFormat](#imageformat), width: number, height: number)</span>
+### <span id="thumbo_thumbnail">Thumbo.thumbnail(bufferDescriptor: [TransferDescriptor](#transferdescriptor), format: [ImageFormat](#imageformat), width: number, height: number): Promise\<ArrayBuffer\></span>
 
 Creates a thumbnail from the provided arraybuffer transfer descriptor.
 The provided arraybuffer is transferred to the worker for processing, once the task is completed, the newly created thumbnail arraybuffer
 is transferred back to the main thread.
 
-### <span id="thumbo_thumbnailFromUrl">Thumbo.thumbnailFromUrl(url: string, format: [ImageFormat](#imageformat), width: number, height: number)</span>
+### <span id="thumbo_thumbnailFromUrl">Thumbo.thumbnailFromUrl(url: string, format: [ImageFormat](#imageformat), width: number, height: number): Promise\<ArrayBuffer\></span>
 
 Creates a thumbnail from the provided `Url`. Once the task is completed, the created thumbnail arraybuffer is transferred to the main thread.
 
