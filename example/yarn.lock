@@ -6956,10 +6956,10 @@ through@^2.3.6, through@^2.3.8:
   resolved "https://registry.yarnpkg.com/through/-/through-2.3.8.tgz#0dd4c9ffaabc357960b1b724115d7e0e86a2e1f5"
   integrity sha1-DdTJ/6q8NXlgsbckEV1+Doai4fU=
 
-thumbo@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/thumbo/-/thumbo-1.0.0.tgz#279710bf6160c0a265667860fb1faa1d49a2cf03"
-  integrity sha512-npYXf1rq4ps2PTVWN05omAB1bC7CBsoYy8JcSP+WmhJLbC8MrHplk1wr9J1JW3Iybg/t+erLYihVGeMP5lHFjA==
+thumbo@^1.0.7:
+  version "1.0.7"
+  resolved "https://registry.yarnpkg.com/thumbo/-/thumbo-1.0.7.tgz#53bbdd5a06eb6b6575d90d302ab3c6be78faac1e"
+  integrity sha512-Skv7GsEkNeq9tTw5VlysrzDvt83tCScA21GRzJn9qDvO+VbmvK6ajvMrju4yd0ucbYlqXGGdBeTP668nervLJg==
   dependencies:
     threads "^1.7.0"
 

@@ -80,6 +80,6 @@
   },
   "target": "web",
   "dependencies": {
-    "thumbo": "^1.0.0"
+    "thumbo": "^1.0.7"
   }
 }

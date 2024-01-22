@@ -3,6 +3,7 @@ enum ImageFormat {
   Jpeg,
   Gif,
   Ico,
+  Svg,
 }
 
 export default ImageFormat;
