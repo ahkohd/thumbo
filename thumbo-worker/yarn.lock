@@ -858,9 +858,9 @@ threads@^1.7.0:
     tiny-worker ">= 2"
 
 thumbo-core@^1.0.8:
-  version "1.0.8"
-  resolved "https://registry.yarnpkg.com/thumbo-core/-/thumbo-core-1.0.8.tgz#c584bcc872d935a678a0745af11e005376565e9b"
-  integrity sha512-tmqbhKUJSiVJbCZs+7a5Lv+ko56OvUsad5FSgadbs4nzKZ57FZ5Uuy95jfY3Qf2EhPXmYr1cBEOHxtg/vO/Qog==
+  version "1.0.10"
+  resolved "https://registry.yarnpkg.com/thumbo-core/-/thumbo-core-1.0.10.tgz#b5d15dd03485b9369ed12bcf0651184c1f2520b9"
+  integrity sha512-dcaygFps9g8ShtHiqHKopJB5waoj0zMSNrskEchGffLu/ZR7Gdq19nODQnMYi5y0qZotukoOm0BXjJSDHSMHsA==
 
 "tiny-worker@>= 2":
   version "2.3.0"
