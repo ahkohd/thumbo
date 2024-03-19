@@ -34,7 +34,7 @@ jobs:
       - name: Update package version
         working-directory: thumbo
         run: npm version ${{ env.RELEASE_VERSION }}
-      - uses: JS-DevTools/npm-publish@v1
+      - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
           package: ./thumbo/package.json
