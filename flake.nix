@@ -8,17 +8,13 @@
       let
         pkgs = import nixpkgs { inherit system; };
 
-        packages = with pkgs; [
-          nodejs_20
-
-          yarn
-        ];
+        packages = with pkgs; [ nodejs_22 corepack_22 ];
 
       in {
 
         devShells.default = pkgs.mkShell {
           buildInputs = packages;
-          shellHook = with pkgs; ''
+          shellHook = ''
             echo "🔮 Welcome to ahkohd/thumbo development environment!"
           '';
         };
