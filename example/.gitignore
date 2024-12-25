@@ -1,22 +1,24 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# Mac OS X
-.DS_Store
-._.*
-._*
+node_modules
+dist
+dist-ssr
+*.local
 
-# Ignore local editor
-.project
-.settings
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
 .idea
-*.swp
-tags
-nbproject/*
-
-# Windows
-Thumbs.db
-
-npm-debug.log
-
-node_modules/
-dist/
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
