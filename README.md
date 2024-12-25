@@ -24,7 +24,7 @@
 Install the package from npm:
 
 ```bash
-yarn add thumbo
+pnpm add thumbo
 ```
 
 ```ts

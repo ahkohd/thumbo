@@ -14,7 +14,7 @@ and provides a callback which thumbo-core exported methods are passed as argumen
 ## 🏗 Setup
 
 ```bash
-yarn
+pnpm
 ```
 
 ## 🔧 Usage

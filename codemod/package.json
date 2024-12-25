@@ -3,5 +3,8 @@
     "global": "^4.4.0",
     "isomorphic-fetch": "^3.0.0",
     "js-beautify": "^1.14.0"
+  },
+  "devDependencies": {
+    "jscodeshift": "^17.1.1"
   }
 }
