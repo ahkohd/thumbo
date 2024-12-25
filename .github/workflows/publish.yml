@@ -20,20 +20,23 @@ jobs:
       - uses: actions/checkout@v4
       - name: Set ENV
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - uses: actions/setup-node@v4
+        with:
+        node-version: 22
       - name: Run thumbo-core codemod
         working-directory: codemod
-        run: npm i -g jscodeshift && yarn && node ./src/main.js
+        run: pnpm install && node ./src/main.js
       - name: Build thumbo worker
         working-directory: thumbo-worker
-        run: yarn && yarn build:prod
+        run: pnpm install && pnpm build:prod
       - name: Build thumbo
         working-directory: thumbo
-        run: yarn && yarn build:prod
+        run: pnpm install && pnpm build:prod
       - name: Copy README.md
         run: cp ./README.md ./thumbo/README.md
       - name: Update package version
         working-directory: thumbo
-        run: npm version ${{ env.RELEASE_VERSION }}
+        run: pnpm version ${{ env.RELEASE_VERSION }}
       - uses: JS-DevTools/npm-publish@v3
         with:
           token: ${{ secrets.NPM_TOKEN }}
