@@ -4,7 +4,7 @@
 
 <strong>A high-performant thumbnail creation library</strong>
 
-[![Build & Test](https://github.com/ahkohd/thumbo/actions/workflows/build.yml/badge.svg)](https://github.com/ahkohd/thumbo-core/actions/workflows/build.yml)
+[![Build & Test](https://github.com/ahkohd/thumbo/actions/workflows/build.yml/badge.svg)](https://github.com/ahkohd/thumbo/actions/workflows/build.yml)
 
 <sub>Built with Rust 🦀 & WebAssembly 🕸</sub>
 
