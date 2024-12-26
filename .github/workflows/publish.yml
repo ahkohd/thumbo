@@ -28,7 +28,10 @@ jobs:
             pnpm --version
       - name: Run thumbo-core codemod
         working-directory: codemod
-        run: pnpm install && node ./src/main.js
+        run: |
+            npm install -g jscodeshift
+            pnpm install
+            node ./src/main.js
       - name: Build thumbo worker
         working-directory: thumbo-worker
         run: pnpm install && pnpm build:prod
