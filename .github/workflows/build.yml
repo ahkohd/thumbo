@@ -15,14 +15,17 @@ jobs:
         run: echo "RELEASE_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - uses: actions/setup-node@v4
         with:
-        node-version: 22
+          node-version: 22
+      - run: |
+            corepack enable
+            pnpm --version
       - name: Run thumbo-core codemod
         working-directory: codemod
-        run: pnpm install && pnpm install && node ./src/main.js
+        run:  pnpm install && node ./src/main.js
       - name: Build thumbo worker
         working-directory: thumbo-worker
         run:  pnpm install && pnpm build:prod
       - name: Build thumbo
         working-directory: thumbo
-        run:  pnpm install && pnpm build:prod
+        run: pnpm install && pnpm build:prod
 
