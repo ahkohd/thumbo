@@ -14,7 +14,7 @@ importers:
     devDependencies:
       vite:
         specifier: ^6.0.5
-        version: 6.0.10
+        version: 6.0.11
 
 packages:
 
@@ -333,8 +333,8 @@ packages:
   tiny-worker@2.3.0:
     resolution: {integrity: sha512-pJ70wq5EAqTAEl9IkGzA+fN0836rycEuz2Cn6yeZ6FRzlVS5IDOkFHpIoEsksPRQV34GDqXm65+OlnZqUSyK2g==}
 
-  vite@6.0.10:
-    resolution: {integrity: sha512-MEszunEcMo6pFsfXN1GhCFQqnE25tWRH0MA4f0Q7uanACi4y1Us+ZGpTMnITwCTnYzB2b9cpmnelTlxgTBmaBA==}
+  vite@6.0.11:
+    resolution: {integrity: sha512-4VL9mQPKoHy4+FE0NnRE/kbY51TOfaknxAjt3fJbGJxhIpBZiqVzlZDEesWWsuREXHwNdAoOFZ9MkPEVXczHwg==}
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
     peerDependencies:
@@ -614,7 +614,7 @@ snapshots:
       esm: 3.2.25
     optional: true
 
-  vite@6.0.10:
+  vite@6.0.11:
     dependencies:
       esbuild: 0.24.2
       postcss: 8.5.1
